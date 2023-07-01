@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt");
+
 module.exports = {
   login: (req, res, userAuth) => {
     const { email, password } = req.body;
@@ -12,11 +14,21 @@ module.exports = {
             return res.badRequest("User Does Not Exist.");
           } else {
             let user = userData[0];
-            if (user.password !== password) {
-              return res.badRequest("User password not matching.");
-            } else {
-              return res.ok(user);
-            }
+            bcrypt.compare(
+              password.toString(),
+              user.password,
+              function (err, data) {
+                if (err) {
+                  return res.serverError(err);
+                } else {
+                  if (!data) {
+                    return res.badRequest("User password not matching.");
+                  } else {
+                    return res.ok(user);
+                  }
+                }
+              }
+            );
           }
         });
       }
