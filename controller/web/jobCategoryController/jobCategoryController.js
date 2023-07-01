@@ -8,7 +8,7 @@ module.exports = {
             return res.badRequest(res.__("categoryDoesNotExist"));
           } else {
             let category = categoryData;
-            return res.send(category);
+            return res.ok(category);
           }
         });
       } catch (err) {

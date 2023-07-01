@@ -9,6 +9,7 @@ const swaggerDocument = require("./public/swagger.json");
 const jobListRoutes = require("./routes/jobList");
 const authRoutes = require("./routes/auth");
 const jobCategoryRoutes = require("./routes/jobCategories");
+const userRegisterRoutes = require("./routes/userRegister");
 const responses = require("./response/index");
 
 const app = express();
@@ -86,6 +87,7 @@ function initStaicPath() {
   app.use("/auth", authRoutes);
   app.use("/job-list", jobListRoutes);
   app.use("/job-category", jobCategoryRoutes);
+  app.use("/add-user", userRegisterRoutes);
 }
 
 // function initSwagger() {}

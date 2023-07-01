@@ -11,7 +11,7 @@ module.exports = {
               return res.badRequest(res.__("jobDoesNotExist"));
             } else {
               let jobs = jobData;
-              return res.send(jobs);
+              return res.ok(jobs);
             }
           });
         }

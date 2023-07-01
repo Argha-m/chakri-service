@@ -13,4 +13,17 @@ module.exports = {
       });
     });
   },
+  registerUser: (userDetails) => {
+    return new Promise((resolve, reject) => {
+      const query =
+        "INSERT into user_tbl (username, password, name, roleid, company) VALUES(?)";
+      dbConnection.query(query, [userDetails], (err, insertData) => {
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(insertData);
+        }
+      });
+    });
+  },
 };

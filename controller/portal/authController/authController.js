@@ -15,7 +15,7 @@ module.exports = {
             if (user.password !== password) {
               return res.badRequest("User password not matching.");
             } else {
-              return res.send(user);
+              return res.ok(user);
             }
           }
         });
