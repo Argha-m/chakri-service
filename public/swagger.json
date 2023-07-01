@@ -1,0 +1,50 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Chakri API",
+    "description": "Chakri server connection documentation."
+  },
+  "schemes": ["http", "https"],
+  "paths": {
+    "/portal/auth/login": {
+      "post": {
+        "tag": ["Auth"],
+        "summary": "Admin Portal Login API",
+        "description": "Admin Portal Login",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "An object defining our schema for this request",
+            "schema": {
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "password": {
+                  "type": "string",
+                  "format": "password"
+                }
+              },
+              "required": ["email", "password"]
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        },
+        "security": []
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "chakri-service",
+  "version": "1.0.0",
+  "description": "API for chakri project.",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "response-time": "^2.3.2",
+    "swagger-ui-express": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": " \t"
+  },
+  "author": "",
+  "license": "ISC"
+}
